@@ -39,6 +39,8 @@ async function initMotion() {
   const { initCursor } = await import("./cursor.js");
   const { animateStats } = await import("./stats.js");
   const { initWorkReel } = await import("./work.js");
+  const { initTimeline } = await import("./experience.js");
+  const { initContact } = await import("./contact.js");
 
   initScroll(gsap, ScrollTrigger);
   initHero(gsap);
@@ -47,6 +49,8 @@ async function initMotion() {
   initCursor(gsap);
   animateStats(gsap);
   initWorkReel(gsap, ScrollTrigger);
+  initTimeline(gsap, ScrollTrigger);
+  initContact(gsap);
 }
 
 function boot() {
