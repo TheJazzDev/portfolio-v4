@@ -143,33 +143,133 @@
   border-color: var(--color-accent);
 }
 
-/* ── Work — horizontal reel ─────────────────────────────── */
-/* Default (no JS / mobile): a horizontally-scrollable track. GSAP upgrades this
-   to a pinned, scroll-scrubbed reel on wider screens (see js/work.js). */
-.work__viewport {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-}
-.work__viewport::-webkit-scrollbar {
-  display: none;
-}
-
-.work__track {
+/* ── Work — stacked showcase rows ───────────────────────── */
+.work__rows {
   display: flex;
-  gap: var(--space-lg);
-  padding-inline: var(--container-pad);
-  width: max-content;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
 }
 
-/* When JS pins the section, the viewport no longer scrolls itself. */
-.work--pinned .work__viewport {
-  overflow: visible;
+.work-row {
+  position: relative;
+  display: grid;
+  gap: var(--space-md);
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  border-bottom: 1px solid var(--color-border);
+  background: transparent;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+@media (min-width: 900px) {
+  .work-row {
+    grid-template-columns: 1fr 1.15fr;
+    align-items: center;
+    gap: var(--space-section);
+  }
+  /* Alternate: even rows put the visual on the right. */
+  .work-row:nth-child(even) .work-row__visual {
+    order: 2;
+  }
 }
 
-.work__track .project-card {
-  flex: 0 0 min(78vw, 380px);
+/* Orange wash on hover only (intentional, not an always-on gradient). */
+.work-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-accent) 8%, transparent),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+  pointer-events: none;
+}
+.work-row:hover::before,
+.work-row:focus-visible::before {
+  opacity: 1;
+}
+
+.work-row__visual {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.work-row__index {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-border-strong);
+  transition: -webkit-text-stroke-color var(--dur-base) var(--ease-out);
+}
+.work-row:hover .work-row__index,
+.work-row:focus-visible .work-row__index {
+  -webkit-text-stroke-color: var(--color-accent);
+}
+.work-row__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.work-row__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+.work-row__cat {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+.work-row__title {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.work-row:hover .work-row__title,
+.work-row:focus-visible .work-row__title {
+  color: var(--color-accent);
+}
+.work-row__desc {
+  color: var(--color-text-muted);
+  max-width: 48ch;
+}
+.work-row__stack {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text-dim);
+  line-height: 1.7;
+}
+.work-row__cta {
+  margin-top: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.work-row__arrow {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.work-row:hover .work-row__arrow,
+.work-row:focus-visible .work-row__arrow {
+  transform: translateX(6px);
 }
 
 /* ── Experience timeline ────────────────────────────────── */
@@ -287,6 +387,95 @@
   content: "▹";
   position: absolute;
   left: 0;
+  color: var(--color-accent);
+}
+
+/* ── Evolution — portfolio journey ──────────────────────── */
+.evolution__grid {
+  display: grid;
+  gap: var(--space-md);
+}
+@media (min-width: 640px) {
+  .evolution__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .evolution__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.evo-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.evo-card:hover {
+  border-color: var(--color-border-strong);
+}
+.evo-card--current {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 5%, transparent);
+}
+
+.evo-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.evo-card__version {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: var(--color-accent);
+}
+.evo-card__year {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-text-dim);
+}
+.evo-card__badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+.evo-card__desc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  flex: 1;
+}
+.evo-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+.evo-card__link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.evo-card__link:hover {
+  color: var(--color-accent);
+}
+.evo-card__active {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
   color: var(--color-accent);
 }
 

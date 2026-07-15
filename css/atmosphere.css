@@ -1,6 +1,6 @@
-/* atmosphere.css — layered-but-subtle background depth.
-   Three fixed layers behind content: faint engineering grid, a soft accent glow,
-   and a fine film-grain overlay. All pointer-events:none; purely decorative. */
+/* atmosphere.css — flat, textural background depth (no colored glow gradients).
+   Two fixed layers behind content: a fine engineering grid and film grain.
+   All pointer-events:none; purely decorative. */
 
 .atmosphere {
   position: fixed;
@@ -8,47 +8,17 @@
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
+  background: var(--color-bg);
 }
 
-/* Faint grid — reads as an engineer's canvas. */
+/* Fine engineering grid — reads as a draughtsman's canvas, evenly across the page. */
 .atmosphere__grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: clamp(48px, 6vw, 96px) clamp(48px, 6vw, 96px);
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 40%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 40%, transparent 100%);
-}
-
-/* Soft accent glow anchored top-left behind the hero. */
-.atmosphere__glow {
-  position: absolute;
-  top: -10%;
-  left: -5%;
-  width: 60vw;
-  height: 60vw;
-  max-width: 900px;
-  max-height: 900px;
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--color-accent) 22%, transparent) 0%,
-    transparent 65%
-  );
-  filter: blur(40px);
-}
-
-.atmosphere__glow--2 {
-  top: auto;
-  left: auto;
-  bottom: -15%;
-  right: -10%;
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--color-accent-2) 14%, transparent) 0%,
-    transparent 65%
-  );
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: clamp(40px, 5vw, 72px) clamp(40px, 5vw, 72px);
 }
 
 /* Fine film grain via inline SVG fractal noise. */

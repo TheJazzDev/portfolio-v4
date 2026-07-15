@@ -1,5 +1,7 @@
-/* work.js — render the selected-work reel and (on wide screens) pin it for a
-   scroll-scrubbed horizontal sweep. Without JS it degrades to a swipeable track. */
+/* work.js — render the selected-work section as large, alternating showcase rows.
+   Each row is one project: oversized index + title/detail on one side, a visual
+   panel on the other, sides alternating down the page. Clicking a row opens the
+   project detail modal. */
 
 import { $, $$, el, pad2 } from "./utils.js";
 import { projects } from "./data.js";
@@ -18,30 +20,52 @@ export function renderWork() {
   renderFilters();
 
   projects.forEach((project, i) => {
-    const card = el(
+    const row = el(
       "button",
       {
         type: "button",
-        class: "project-card",
+        class: "work-row",
         "data-cursor": "",
         "data-project-id": project.id,
+        "data-reveal": "",
         "aria-label": `${project.title} — view details`,
       },
-      el("span", { class: "project-card__index" }, pad2(i + 1)),
-      el("span", { class: "project-card__arrow" }, "→"),
-      project.status ? el("span", { class: "status-pill" }, project.status) : null,
-      el("h3", { class: "project-card__title" }, project.title),
-      el("p", {}, project.description),
-      el("div", { class: "project-card__stack" }, project.languages),
+      // Visual / index panel
       el(
         "div",
-        { class: "project-card__tags" },
-        ...project.tags.slice(0, 4).map((tag) => el("span", { class: "tag" }, tag))
+        { class: "work-row__visual" },
+        el("span", { class: "work-row__index" }, pad2(i + 1)),
+        el(
+          "div",
+          { class: "work-row__tags" },
+          ...project.tags.slice(0, 3).map((t) => el("span", { class: "tag" }, t))
+        )
+      ),
+      // Content panel
+      el(
+        "div",
+        { class: "work-row__content" },
+        project.status
+          ? el("span", { class: "status-pill" }, project.status)
+          : el("span", { class: "work-row__cat" }, categoryLabel(project.category)),
+        el("h3", { class: "work-row__title" }, project.title),
+        el("p", { class: "work-row__desc" }, project.description),
+        el("div", { class: "work-row__stack" }, project.languages),
+        el(
+          "span",
+          { class: "work-row__cta" },
+          "View Project ",
+          el("span", { class: "work-row__arrow" }, "→")
+        )
       )
     );
-    card.dataset.category = project.category;
-    target.append(card);
+    row.dataset.category = project.category;
+    target.append(row);
   });
+}
+
+function categoryLabel(cat) {
+  return (CATEGORIES.find(([v]) => v === cat) || [, cat])[1];
 }
 
 function renderFilters() {
@@ -78,41 +102,9 @@ function renderFilters() {
 }
 
 function applyFilter(category) {
-  $$("[data-work-grid] .project-card").forEach((card) => {
-    const show = category === "all" || card.dataset.category === category;
-    card.style.display = show ? "" : "none";
+  $$("[data-work-grid] .work-row").forEach((row) => {
+    const show = category === "all" || row.dataset.category === category;
+    row.style.display = show ? "" : "none";
   });
-  // The reel width changed — let ScrollTrigger recompute the pin distance.
   if (window.ScrollTrigger) window.ScrollTrigger.refresh();
-}
-
-/** Pin the work section and translate the track horizontally as the user scrolls. */
-export function initWorkReel(gsap, ScrollTrigger) {
-  const section = $(".work");
-  const viewport = $("[data-work-viewport]");
-  const track = $("[data-work-grid]");
-  if (!section || !viewport || !track) return;
-
-  // Only pin on wider screens with enough overflow to be worth it.
-  const mq = window.matchMedia("(min-width: 900px)");
-  if (!mq.matches) return;
-
-  const getScrollDistance = () => track.scrollWidth - viewport.clientWidth;
-  if (getScrollDistance() <= 0) return;
-
-  section.classList.add("work--pinned");
-
-  gsap.to(track, {
-    x: () => -getScrollDistance(),
-    ease: "none",
-    scrollTrigger: {
-      trigger: section,
-      start: "top top",
-      end: () => "+=" + getScrollDistance(),
-      pin: true,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    },
-  });
 }

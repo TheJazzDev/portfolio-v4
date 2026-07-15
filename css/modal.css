@@ -123,15 +123,13 @@
 }
 .modal__callout--accent {
   border-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
-  background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent);
+  border-left: 3px solid var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 6%, transparent);
 }
 .modal__callout--impact {
   border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
-  background: linear-gradient(
-    160deg,
-    color-mix(in srgb, var(--color-accent) 14%, transparent),
-    color-mix(in srgb, var(--color-accent-2) 12%, transparent)
-  );
+  border-left: 3px solid var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
 }
 .modal__callout--impact p {
   color: var(--color-text);

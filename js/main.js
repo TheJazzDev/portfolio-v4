@@ -10,6 +10,7 @@ import { renderContact } from "./contact.js";
 import { renderStats } from "./stats.js";
 import { initNav } from "./nav.js";
 import { initModal } from "./modal.js";
+import { renderEvolution } from "./evolution.js";
 
 // Render content that comes from data.js (safe without GSAP).
 function renderContent() {
@@ -18,6 +19,7 @@ function renderContent() {
   renderAbout();
   renderWork();
   renderExperience();
+  renderEvolution();
   renderContact();
   initModal();
 }
@@ -43,7 +45,6 @@ async function initMotion() {
   const { initMarquees } = await import("./marquee.js");
   const { initCursor } = await import("./cursor.js");
   const { animateStats } = await import("./stats.js");
-  const { initWorkReel } = await import("./work.js");
   const { initTimeline } = await import("./experience.js");
   const { initContact } = await import("./contact.js");
 
@@ -53,7 +54,6 @@ async function initMotion() {
   initMarquees(gsap);
   initCursor(gsap);
   animateStats(gsap);
-  initWorkReel(gsap, ScrollTrigger);
   initTimeline(gsap, ScrollTrigger);
   initContact(gsap);
 
