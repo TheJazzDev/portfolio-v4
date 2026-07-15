@@ -4,7 +4,8 @@
 .nav {
   position: fixed;
   inset: 0 0 auto 0;
-  z-index: var(--z-nav);
+  /* Above the mobile-menu overlay so the toggle stays tappable to close it. */
+  z-index: calc(var(--z-overlay) + 1);
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -41,6 +42,89 @@
 }
 .nav__link:hover {
   color: var(--color-text);
+}
+
+/* ── Mobile nav toggle ──────────────────────────────────── */
+.nav__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .nav__toggle {
+    display: none;
+  }
+}
+.nav__toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
+}
+.nav__toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+.nav__toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* ── Mobile menu overlay ────────────────────────────────── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  padding: var(--container-pad);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    visibility var(--dur-fast);
+}
+.mobile-menu[data-open] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+.mobile-menu__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+.mobile-menu__link {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 12vw, 3.5rem);
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--color-text);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.mobile-menu__link:hover,
+.mobile-menu__link:active {
+  color: var(--color-accent);
+}
+.mobile-menu__link span {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-accent);
 }
 
 /* ── Buttons ────────────────────────────────────────────── */

@@ -8,9 +8,11 @@ import { renderWork } from "./work.js";
 import { renderExperience } from "./experience.js";
 import { renderContact } from "./contact.js";
 import { renderStats } from "./stats.js";
+import { initNav } from "./nav.js";
 
 // Render content that comes from data.js (safe without GSAP).
 function renderContent() {
+  initNav();
   renderStats();
   renderAbout();
   renderWork();
