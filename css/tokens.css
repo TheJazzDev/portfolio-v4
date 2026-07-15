@@ -1,0 +1,75 @@
+/* tokens.css — design tokens: colour, type scale, spacing, motion.
+   Bold / high-energy developer aesthetic on a near-black base. */
+
+:root {
+  /* ── Colour ─────────────────────────────────────────────── */
+  --color-bg: #0a0a0a;
+  --color-bg-elevated: #121212;
+  --color-surface: #171717;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
+
+  --color-text: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+  --color-text-dim: #6b6b73;
+
+  /* Signature accents (bold, high-energy) */
+  --color-accent: #6c5ce7; /* electric violet — primary */
+  --color-accent-2: #00e6a8; /* neon mint — secondary */
+  --color-accent-contrast: #ffffff;
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-display: "Clash Display", "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, monospace;
+
+  /* Fluid type scale (mobile-first via clamp) */
+  --fs-hero: clamp(2.75rem, 10vw, 9rem);
+  --fs-display: clamp(2rem, 6vw, 5rem);
+  --fs-h1: clamp(1.75rem, 4.5vw, 3.5rem);
+  --fs-h2: clamp(1.5rem, 3.5vw, 2.5rem);
+  --fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --fs-body-lg: clamp(1.05rem, 1.6vw, 1.35rem);
+  --fs-body: clamp(0.95rem, 1.2vw, 1.1rem);
+  --fs-sm: clamp(0.8rem, 1vw, 0.9rem);
+  --fs-mono: 0.8rem;
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-normal: 1.6;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-mono: 0.14em;
+
+  /* ── Spacing (fluid section rhythm) ─────────────────────── */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: clamp(3rem, 8vw, 7rem);
+  --space-section: clamp(4rem, 12vw, 10rem);
+
+  --container-max: 1400px;
+  --container-pad: clamp(1.25rem, 5vw, 5rem);
+
+  /* ── Radius & elevation ─────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --radius-full: 999px;
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --dur-fast: 0.3s;
+  --dur-base: 0.6s;
+  --dur-slow: 1s;
+
+  /* ── Layout constants ───────────────────────────────────── */
+  --nav-height: 72px;
+  --z-cursor: 9999;
+  --z-nav: 100;
+  --z-overlay: 500;
+}

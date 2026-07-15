@@ -1,0 +1,140 @@
+/* sections.css — per-section styles (hero, about, work, experience, contact) */
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero {
+  position: relative;
+}
+
+.hero__eyebrow {
+  margin-bottom: var(--space-md);
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+}
+
+.hero__title .line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero__sub {
+  margin-top: var(--space-lg);
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+  max-width: 42ch;
+}
+
+.hero__actions {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* ── About ──────────────────────────────────────────────── */
+.about__bio p {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+/* ── Work ───────────────────────────────────────────────── */
+.work__grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+@media (min-width: 640px) {
+  .work__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .work__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Experience timeline ────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.timeline__item {
+  display: grid;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .timeline__item {
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-lg);
+  }
+}
+
+.timeline__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-text-dim);
+}
+
+.timeline__role {
+  font-size: var(--fs-h3);
+}
+
+.timeline__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+.timeline__highlights li {
+  padding-left: 1.25rem;
+  position: relative;
+  color: var(--color-text-muted);
+  font-size: var(--fs-body);
+}
+.timeline__highlights li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ── Contact ────────────────────────────────────────────── */
+.contact {
+  text-align: center;
+}
+.contact__title {
+  font-size: var(--fs-display);
+  text-transform: uppercase;
+}
+.contact__email {
+  display: inline-block;
+  margin-top: var(--space-lg);
+  font-size: var(--fs-h2);
+  font-family: var(--font-display);
+  color: var(--color-text);
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.contact__email:hover {
+  border-color: var(--color-accent);
+}
+.contact__socials {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}

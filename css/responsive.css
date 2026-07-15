@@ -1,0 +1,30 @@
+/* responsive.css — mobile-first refinements.
+   Base styles target mobile; these adjust up. Keep mobile text/padding moderate. */
+
+/* Tighten hero on very small screens */
+@media (max-width: 400px) {
+  .hero__title {
+    line-height: 1;
+  }
+  .btn {
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* Larger rhythm on wide screens */
+@media (min-width: 1280px) {
+  .section-head {
+    max-width: 70ch;
+  }
+}
+
+/* Reduce marquee type on mobile so it doesn't overwhelm */
+@media (max-width: 640px) {
+  .marquee__track {
+    font-size: var(--fs-h3);
+    gap: var(--space-md);
+  }
+  .marquee__item {
+    gap: var(--space-md);
+  }
+}

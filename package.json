@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-v4",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cinematic HTML/CSS/JS + GSAP portfolio (v4)",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "bun run build.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "lightningcss": "^1.27.0"
+  }
+}

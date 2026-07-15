@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Taiwo Babarinde — Senior Frontend Engineer</title>
+    <meta
+      name="description"
+      content="Taiwo Babarinde — Senior Frontend Engineer building high-performance, cinematic web experiences with React, Next.js, TypeScript, and GSAP."
+    />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <div class="cursor" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <header class="nav">
+      <a href="#top" class="nav__brand">TB.</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a class="nav__link" href="#work">Work</a>
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#experience">Experience</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="section section--full hero" id="hero">
+        <div class="container">
+          <p class="eyebrow hero__eyebrow">Senior Frontend Engineer · Remote</p>
+          <h1 class="hero__title">
+            <span class="line">Taiwo</span>
+            <span class="line">Babarinde</span>
+          </h1>
+          <p class="hero__sub">
+            I build high-performance, cinematic web experiences — from micro-frontend
+            architectures to real-time platforms.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#work">View Work</a>
+            <a class="btn btn--ghost" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills marquee -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track" data-skills-marquee data-speed="60"></div>
+      </div>
+
+      <!-- About -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">&gt; 01 · About</p>
+            <h2 data-reveal>Engineering with design sensibility.</h2>
+          </div>
+          <div class="about__bio" data-about-bio></div>
+        </div>
+      </section>
+
+      <!-- Selected Work -->
+      <section class="section" id="work">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">&gt; 02 · Selected Work</p>
+            <h2 data-reveal>Projects that scale and perform.</h2>
+          </div>
+          <div class="work__grid" data-work-grid></div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="section" id="experience">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">&gt; 03 · Experience</p>
+            <h2 data-reveal>The evolution so far.</h2>
+          </div>
+          <div class="timeline" data-timeline></div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section section--full contact" id="contact">
+        <div class="container">
+          <p class="eyebrow" data-reveal>&gt; 04 · Contact</p>
+          <h2 class="contact__title" data-reveal>Let's build something.</h2>
+          <a class="contact__email" data-contact-email href="#">email</a>
+          <div class="contact__socials" data-contact-socials></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
