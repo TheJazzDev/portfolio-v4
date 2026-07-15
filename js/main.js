@@ -7,9 +7,11 @@ import { renderAbout } from "./about.js";
 import { renderWork } from "./work.js";
 import { renderExperience } from "./experience.js";
 import { renderContact } from "./contact.js";
+import { renderStats } from "./stats.js";
 
 // Render content that comes from data.js (safe without GSAP).
 function renderContent() {
+  renderStats();
   renderAbout();
   renderWork();
   renderExperience();
@@ -35,12 +37,16 @@ async function initMotion() {
   const { initReveals } = await import("./reveal.js");
   const { initMarquees } = await import("./marquee.js");
   const { initCursor } = await import("./cursor.js");
+  const { animateStats } = await import("./stats.js");
+  const { initWorkReel } = await import("./work.js");
 
   initScroll(gsap, ScrollTrigger);
   initHero(gsap);
   initReveals(gsap);
   initMarquees(gsap);
   initCursor(gsap);
+  animateStats(gsap);
+  initWorkReel(gsap, ScrollTrigger);
 }
 
 function boot() {

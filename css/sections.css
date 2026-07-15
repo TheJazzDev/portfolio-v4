@@ -35,6 +35,77 @@
   gap: var(--space-sm);
 }
 
+/* Hero stats row */
+.hero__stats {
+  margin-top: var(--space-xl);
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: var(--space-lg) var(--space-xl);
+  justify-content: start;
+}
+@media (min-width: 768px) {
+  .hero__stats {
+    grid-template-columns: repeat(4, auto);
+  }
+}
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.hero__stat dd {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--color-text);
+}
+.hero__stat dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+/* Scroll cue */
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: var(--container-pad);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+.hero__scroll-line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--color-border-strong);
+  position: relative;
+  overflow: hidden;
+}
+.hero__scroll-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent);
+  transform: translateX(-100%);
+  animation: scroll-sweep 2.4s var(--ease-in-out) infinite;
+}
+@keyframes scroll-sweep {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-line::after { animation: none; }
+}
+
 /* ── About ──────────────────────────────────────────────── */
 .about__bio p {
   font-size: var(--fs-body-lg);
@@ -42,20 +113,33 @@
   margin-bottom: var(--space-md);
 }
 
-/* ── Work ───────────────────────────────────────────────── */
-.work__grid {
-  display: grid;
+/* ── Work — horizontal reel ─────────────────────────────── */
+/* Default (no JS / mobile): a horizontally-scrollable track. GSAP upgrades this
+   to a pinned, scroll-scrubbed reel on wider screens (see js/work.js). */
+.work__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.work__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.work__track {
+  display: flex;
   gap: var(--space-lg);
+  padding-inline: var(--container-pad);
+  width: max-content;
 }
-@media (min-width: 640px) {
-  .work__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
+/* When JS pins the section, the viewport no longer scrolls itself. */
+.work--pinned .work__viewport {
+  overflow: visible;
 }
-@media (min-width: 1024px) {
-  .work__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+
+.work__track .project-card {
+  flex: 0 0 min(78vw, 380px);
 }
 
 /* ── Experience timeline ────────────────────────────────── */

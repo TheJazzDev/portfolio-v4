@@ -9,9 +9,14 @@
       content="Taiwo Babarinde — Senior Frontend Engineer building high-performance, cinematic web experiences with React, Next.js, TypeScript, and GSAP."
     />
 
+    <link rel="preload" href="assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/archivo-400.woff2" as="font" type="font/woff2" crossorigin />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/atmosphere.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/sections.css" />
@@ -19,6 +24,13 @@
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
+    <div class="atmosphere" aria-hidden="true">
+      <div class="atmosphere__grid"></div>
+      <div class="atmosphere__glow"></div>
+      <div class="atmosphere__glow atmosphere__glow--2"></div>
+      <div class="atmosphere__grain"></div>
+    </div>
+
     <div class="cursor" aria-hidden="true"></div>
 
     <!-- Navigation -->
@@ -49,7 +61,14 @@
             <a class="btn btn--primary" href="#work">View Work</a>
             <a class="btn btn--ghost" href="#contact">Get in Touch</a>
           </div>
+
+          <dl class="hero__stats" data-hero-stats></dl>
         </div>
+
+        <a class="hero__scroll" href="#about" aria-label="Scroll to content">
+          <span class="hero__scroll-label">Scroll</span>
+          <span class="hero__scroll-line"></span>
+        </a>
       </section>
 
       <!-- Skills marquee -->
@@ -68,14 +87,16 @@
         </div>
       </section>
 
-      <!-- Selected Work -->
-      <section class="section" id="work">
+      <!-- Selected Work — pinned horizontal reel (falls back to grid without JS) -->
+      <section class="section work" id="work">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">&gt; 02 · Selected Work</p>
             <h2 data-reveal>Projects that scale and perform.</h2>
           </div>
-          <div class="work__grid" data-work-grid></div>
+        </div>
+        <div class="work__viewport" data-work-viewport>
+          <div class="work__track" data-work-grid></div>
         </div>
       </section>
 

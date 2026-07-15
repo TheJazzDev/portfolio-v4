@@ -14,9 +14,10 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 400; /* Anton ships a single weight */
   line-height: var(--lh-tight);
-  letter-spacing: var(--tracking-tight);
+  letter-spacing: 0.01em; /* Anton is condensed; a touch of air reads better */
+  text-transform: uppercase;
 }
 
 h1 {

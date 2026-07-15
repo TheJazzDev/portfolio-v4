@@ -19,8 +19,10 @@
   --color-accent-contrast: #ffffff;
 
   /* ── Typography ─────────────────────────────────────────── */
-  --font-display: "Clash Display", "Space Grotesk", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  /* Anton: condensed all-caps display impact. Archivo: readable body.
+     JetBrains Mono: terminal/dev labels. All self-hosted (css/fonts.css). */
+  --font-display: "Anton", "Arial Narrow", system-ui, sans-serif;
+  --font-sans: "Archivo", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, monospace;
 
   /* Fluid type scale (mobile-first via clamp) */
