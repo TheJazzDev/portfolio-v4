@@ -13,16 +13,17 @@
   --color-text-muted: #a1a1aa;
   --color-text-dim: #6b6b73;
 
-  /* Signature accents (bold, high-energy) */
-  --color-accent: #6c5ce7; /* electric violet — primary */
-  --color-accent-2: #00e6a8; /* neon mint — secondary */
+  /* Signature accents — carried over from v3 (primary orange + electric blue). */
+  --color-accent: #f97316; /* orange — primary (v3 primary-500) */
+  --color-accent-600: #ea580c; /* orange hover (v3 primary-600) */
+  --color-accent-2: #0ea5e9; /* electric blue — secondary (v3 electric-500) */
   --color-accent-contrast: #ffffff;
 
   /* ── Typography ─────────────────────────────────────────── */
-  /* Anton: condensed all-caps display impact. Archivo: readable body.
+  /* Clash Display: characterful bold display. General Sans: clean body.
      JetBrains Mono: terminal/dev labels. All self-hosted (css/fonts.css). */
-  --font-display: "Anton", "Arial Narrow", system-ui, sans-serif;
-  --font-sans: "Archivo", system-ui, -apple-system, sans-serif;
+  --font-display: "Clash Display", system-ui, sans-serif;
+  --font-sans: "General Sans", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, monospace;
 
   /* Fluid type scale (mobile-first via clamp) */

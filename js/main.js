@@ -9,6 +9,7 @@ import { renderExperience } from "./experience.js";
 import { renderContact } from "./contact.js";
 import { renderStats } from "./stats.js";
 import { initNav } from "./nav.js";
+import { initModal } from "./modal.js";
 
 // Render content that comes from data.js (safe without GSAP).
 function renderContent() {
@@ -18,6 +19,7 @@ function renderContent() {
   renderWork();
   renderExperience();
   renderContact();
+  initModal();
 }
 
 async function initMotion() {

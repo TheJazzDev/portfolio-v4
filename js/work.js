@@ -9,13 +9,17 @@ export function renderWork() {
   if (!target) return;
 
   projects.forEach((project, i) => {
-    const link = project.liveDemoLink || project.githubLink;
-
     const card = el(
-      "article",
-      { class: "project-card", "data-cursor": "" },
+      "button",
+      {
+        type: "button",
+        class: "project-card",
+        "data-cursor": "",
+        "data-project-id": project.id,
+        "aria-label": `${project.title} — view details`,
+      },
       el("span", { class: "project-card__index" }, pad2(i + 1)),
-      link ? el("span", { class: "project-card__arrow" }, "↗") : null,
+      el("span", { class: "project-card__arrow" }, "→"),
       project.status ? el("span", { class: "status-pill" }, project.status) : null,
       el("h3", { class: "project-card__title" }, project.title),
       el("p", {}, project.description),
@@ -26,20 +30,6 @@ export function renderWork() {
         ...project.tags.slice(0, 4).map((tag) => el("span", { class: "tag" }, tag))
       )
     );
-
-    if (link) {
-      card.style.position = "relative";
-      card.append(
-        el("a", {
-          href: link,
-          target: "_blank",
-          rel: "noopener noreferrer",
-          "aria-label": `${project.title} — open link`,
-          style: "position:absolute;inset:0;",
-        })
-      );
-    }
-
     target.append(card);
   });
 }

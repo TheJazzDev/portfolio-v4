@@ -169,6 +169,11 @@
   gap: var(--space-sm);
   padding: var(--space-lg);
   min-height: 380px;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
   background: linear-gradient(
     160deg,
     var(--color-bg-elevated) 0%,
