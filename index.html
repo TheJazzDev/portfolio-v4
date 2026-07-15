@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/preloader.css" />
     <link rel="stylesheet" href="css/atmosphere.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/components.css" />
@@ -25,6 +26,15 @@
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
+    <!-- Intro preloader -->
+    <div class="preloader" data-preloader aria-hidden="true">
+      <div class="preloader__inner">
+        <span class="preloader__name">Taiwo Babarinde</span>
+        <span class="preloader__count" data-preloader-count>0</span>
+      </div>
+      <div class="preloader__bar"><span data-preloader-bar></span></div>
+    </div>
+
     <div class="atmosphere" aria-hidden="true">
       <div class="atmosphere__grid"></div>
       <div class="atmosphere__glow"></div>
@@ -116,6 +126,7 @@
             <p class="eyebrow">&gt; 02 · Selected Work</p>
             <h2 data-reveal>Projects that scale and perform.</h2>
           </div>
+          <div class="work__filters" data-work-filters role="tablist" aria-label="Filter projects"></div>
         </div>
         <div class="work__viewport" data-work-viewport>
           <div class="work__track" data-work-grid></div>
@@ -134,7 +145,7 @@
       </section>
 
       <!-- Contact — kinetic finale -->
-      <section class="section section--full contact" id="contact">
+      <section class="section contact" id="contact">
         <div class="container">
           <p class="eyebrow" data-reveal>&gt; 04 · Contact</p>
           <h2 class="contact__title">
@@ -142,8 +153,40 @@
             <span class="line">something</span>
             <span class="line contact__title-accent">exceptional.</span>
           </h2>
-          <a class="contact__email" data-contact-email href="#" data-cursor>email</a>
-          <div class="contact__socials" data-contact-socials></div>
+
+          <div class="contact__grid">
+            <div class="contact__info">
+              <p class="contact__intro" data-reveal>
+                Have a project in mind, or just want to say hello? Drop me a message —
+                I'm always open to new work and collaborations.
+              </p>
+              <a class="contact__email" data-contact-email href="#" data-cursor>email</a>
+              <div class="contact__socials" data-contact-socials></div>
+            </div>
+
+            <form class="contact__form" data-contact-form novalidate>
+              <div class="field">
+                <label for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="cf-subject">Subject</label>
+                <input id="cf-subject" name="subject" type="text" required />
+              </div>
+              <div class="field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="5" required></textarea>
+              </div>
+              <button class="btn btn--primary contact__submit" type="submit">
+                Send Message →
+              </button>
+              <p class="contact__status" data-contact-status role="status" aria-live="polite"></p>
+            </form>
+          </div>
         </div>
 
         <div class="marquee contact__marquee" aria-hidden="true">

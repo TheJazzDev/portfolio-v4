@@ -36,6 +36,7 @@ async function initMotion() {
   // Only now do we allow the CSS that hides pre-animation state.
   document.documentElement.classList.add("js-ready");
 
+  const { runPreloader } = await import("./preloader.js");
   const { initScroll } = await import("./scroll.js");
   const { initHero } = await import("./hero.js");
   const { initReveals } = await import("./reveal.js");
@@ -46,8 +47,8 @@ async function initMotion() {
   const { initTimeline } = await import("./experience.js");
   const { initContact } = await import("./contact.js");
 
+  // Set up everything scroll-driven up front (safe while the preloader covers).
   initScroll(gsap, ScrollTrigger);
-  initHero(gsap);
   initReveals(gsap);
   initMarquees(gsap);
   initCursor(gsap);
@@ -55,6 +56,10 @@ async function initMotion() {
   initWorkReel(gsap, ScrollTrigger);
   initTimeline(gsap, ScrollTrigger);
   initContact(gsap);
+
+  // Run the intro, then reveal the hero as the loader wipes away.
+  await runPreloader(gsap);
+  initHero(gsap);
 }
 
 function boot() {

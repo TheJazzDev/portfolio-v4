@@ -113,6 +113,36 @@
   margin-bottom: var(--space-md);
 }
 
+/* ── Work filters ───────────────────────────────────────── */
+.work__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+.work__filter {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  transition: color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+.work__filter:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+.work__filter.is-active {
+  color: var(--color-accent-contrast);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 /* ── Work — horizontal reel ─────────────────────────────── */
 /* Default (no JS / mobile): a horizontally-scrollable track. GSAP upgrades this
    to a pinned, scroll-scrubbed reel on wider screens (see js/work.js). */
@@ -278,12 +308,28 @@
   color: var(--color-accent);
 }
 
+/* Two-column info + form */
+.contact__grid {
+  margin-top: var(--space-xl);
+  display: grid;
+  gap: var(--space-xl);
+}
+@media (min-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-section);
+  }
+}
+.contact__intro {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+}
+
 .contact__email {
   display: inline-block;
-  margin-top: var(--space-xl);
-  font-size: clamp(1.35rem, 4vw, 3rem);
+  margin-top: var(--space-lg);
+  font-size: clamp(1.35rem, 3vw, 2.25rem);
   font-family: var(--font-display);
-  text-transform: uppercase;
   color: var(--color-text);
   position: relative;
   transition: color var(--dur-fast) var(--ease-out);
@@ -316,6 +362,68 @@
   font-size: var(--fs-mono);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
+}
+
+/* Contact form */
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.field label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+.field input,
+.field textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  transition: border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 5%, transparent);
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--color-text-dim);
+}
+.contact__submit {
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+}
+.contact__status {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  min-height: 1.2em;
+  margin: 0;
+}
+.contact__status[data-kind="error"] {
+  color: #f87171;
+}
+.contact__status[data-kind="success"] {
+  color: var(--color-accent);
 }
 
 .contact__marquee {

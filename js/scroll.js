@@ -6,6 +6,8 @@ import { prefersReducedMotion } from "./utils.js";
 
 export function initScroll(gsap, ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
+  // Expose for non-motion modules that need to trigger a refresh (e.g. filters).
+  window.ScrollTrigger = ScrollTrigger;
 
   // Refresh triggers after fonts/layout settle.
   if (document.fonts && document.fonts.ready) {

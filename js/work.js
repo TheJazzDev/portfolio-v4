@@ -1,12 +1,21 @@
 /* work.js — render the selected-work reel and (on wide screens) pin it for a
    scroll-scrubbed horizontal sweep. Without JS it degrades to a swipeable track. */
 
-import { $, el, pad2 } from "./utils.js";
+import { $, $$, el, pad2 } from "./utils.js";
 import { projects } from "./data.js";
+
+const CATEGORIES = [
+  ["all", "All"],
+  ["webapp", "Web Apps"],
+  ["website", "Websites"],
+  ["mobile", "Mobile"],
+];
 
 export function renderWork() {
   const target = $("[data-work-grid]");
   if (!target) return;
+
+  renderFilters();
 
   projects.forEach((project, i) => {
     const card = el(
@@ -30,8 +39,51 @@ export function renderWork() {
         ...project.tags.slice(0, 4).map((tag) => el("span", { class: "tag" }, tag))
       )
     );
+    card.dataset.category = project.category;
     target.append(card);
   });
+}
+
+function renderFilters() {
+  const bar = $("[data-work-filters]");
+  if (!bar) return;
+
+  CATEGORIES.forEach(([value, label], i) => {
+    bar.append(
+      el(
+        "button",
+        {
+          type: "button",
+          class: "work__filter" + (i === 0 ? " is-active" : ""),
+          role: "tab",
+          "aria-selected": i === 0 ? "true" : "false",
+          "data-filter": value,
+          "data-cursor": "",
+        },
+        label
+      )
+    );
+  });
+
+  bar.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-filter]");
+    if (!btn) return;
+    applyFilter(btn.dataset.filter);
+    $$(".work__filter", bar).forEach((b) => {
+      const active = b === btn;
+      b.classList.toggle("is-active", active);
+      b.setAttribute("aria-selected", String(active));
+    });
+  });
+}
+
+function applyFilter(category) {
+  $$("[data-work-grid] .project-card").forEach((card) => {
+    const show = category === "all" || card.dataset.category === category;
+    card.style.display = show ? "" : "none";
+  });
+  // The reel width changed — let ScrollTrigger recompute the pin distance.
+  if (window.ScrollTrigger) window.ScrollTrigger.refresh();
 }
 
 /** Pin the work section and translate the track horizontally as the user scrolls. */
