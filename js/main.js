@@ -61,8 +61,8 @@ async function initMotion() {
   await runPreloader(gsap);
   initHero(gsap);
 
-  // Interactive WebGL hero background (self-contained; no-ops if unsupported).
-  import("./webgl-hero.js").then((m) => m.initWebGLHero());
+  // Interactive hero background (self-contained; no-ops if unsupported).
+  import("./hero-bg.js").then((m) => m.initHeroBg());
 }
 
 function boot() {
