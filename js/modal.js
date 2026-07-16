@@ -138,6 +138,7 @@ export function initModal() {
     root.removeAttribute("data-open");
     root.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    if (window.lenis) window.lenis.start();
     if (lastFocused) lastFocused.focus();
   };
 
@@ -150,6 +151,7 @@ export function initModal() {
     root.setAttribute("data-open", "");
     root.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    if (window.lenis) window.lenis.stop();
     $("[data-modal-close]", root)?.focus();
   };
 

@@ -14,6 +14,7 @@ export function initNav() {
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     document.body.style.overflow = open ? "hidden" : "";
+    if (window.lenis) open ? window.lenis.stop() : window.lenis.start();
   };
 
   toggle.addEventListener("click", () =>
