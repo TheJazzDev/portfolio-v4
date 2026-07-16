@@ -1,7 +1,11 @@
 /* work.js — render the selected-work section as large, alternating showcase rows.
    Each row is one project: oversized index + title/detail on one side, a visual
    panel on the other, sides alternating down the page. Clicking a row opens the
-   project detail modal. */
+   project detail modal.
+
+   Only the first FEATURED_COUNT rows show by default (23 full-height rows is too
+   much scroll); the rest are revealed via a "View all" toggle. Category filters
+   override the collapse and show every matching row. */
 
 import { $, $$, el, pad2 } from "./utils.js";
 import { projects } from "./data.js";
@@ -12,6 +16,11 @@ const CATEGORIES = [
   ["website", "Websites"],
   ["mobile", "Mobile"],
 ];
+
+const FEATURED_COUNT = 6;
+
+let expanded = false;
+let currentFilter = "all";
 
 export function renderWork() {
   const target = $("[data-work-grid]");
@@ -30,7 +39,6 @@ export function renderWork() {
         "data-reveal": "",
         "aria-label": `${project.title} — view details`,
       },
-      // Visual / index panel
       el(
         "div",
         { class: "work-row__visual" },
@@ -41,7 +49,6 @@ export function renderWork() {
           ...project.tags.slice(0, 3).map((t) => el("span", { class: "tag" }, t))
         )
       ),
-      // Content panel
       el(
         "div",
         { class: "work-row__content" },
@@ -60,12 +67,62 @@ export function renderWork() {
       )
     );
     row.dataset.category = project.category;
+    if (i >= FEATURED_COUNT) row.dataset.extra = "";
     target.append(row);
   });
+
+  renderToggle(target);
+  update();
 }
 
 function categoryLabel(cat) {
   return (CATEGORIES.find(([v]) => v === cat) || [, cat])[1];
+}
+
+function renderToggle(target) {
+  const btn = el(
+    "button",
+    { type: "button", class: "work__more", "data-work-more": "", "data-cursor": "" },
+    ""
+  );
+  btn.addEventListener("click", () => {
+    expanded = !expanded;
+    update();
+    if (!expanded) {
+      // Collapsing: bring the user back to the section top so they aren't stranded.
+      $("#work")?.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+  target.after(btn);
+}
+
+/** Recompute which rows are visible from the current filter + expanded state. */
+function update() {
+  const filtered = currentFilter !== "all";
+  const rows = $$("[data-work-grid] .work-row");
+  let shownCount = 0;
+
+  rows.forEach((row) => {
+    const matches = currentFilter === "all" || row.dataset.category === currentFilter;
+    const isExtra = row.hasAttribute("data-extra");
+    // When filtering, show all matches. Otherwise honour the featured collapse.
+    const show = matches && (filtered || expanded || !isExtra);
+    row.style.display = show ? "" : "none";
+    if (show) shownCount += 1;
+  });
+
+  const more = $("[data-work-more]");
+  if (more) {
+    const total = filtered
+      ? rows.filter((r) => r.dataset.category === currentFilter).length
+      : projects.length;
+    // Hide the toggle while filtering or when nothing is collapsed.
+    const hideToggle = filtered || total <= FEATURED_COUNT;
+    more.style.display = hideToggle ? "none" : "";
+    more.textContent = expanded ? "Show less ↑" : `View all ${total} projects →`;
+  }
+
+  if (window.ScrollTrigger) window.ScrollTrigger.refresh();
 }
 
 function renderFilters() {
@@ -92,19 +149,12 @@ function renderFilters() {
   bar.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-filter]");
     if (!btn) return;
-    applyFilter(btn.dataset.filter);
+    currentFilter = btn.dataset.filter;
+    update();
     $$(".work__filter", bar).forEach((b) => {
       const active = b === btn;
       b.classList.toggle("is-active", active);
       b.setAttribute("aria-selected", String(active));
     });
   });
-}
-
-function applyFilter(category) {
-  $$("[data-work-grid] .work-row").forEach((row) => {
-    const show = category === "all" || row.dataset.category === category;
-    row.style.display = show ? "" : "none";
-  });
-  if (window.ScrollTrigger) window.ScrollTrigger.refresh();
 }
