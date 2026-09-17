@@ -45,7 +45,7 @@ then scaffold the new app in the following commits.
 
 ### `/` (the portfolio)
 
-Revised 2026-09-17 after review: the narrow centred column read like a CV. The page is now full width (`max-w-7xl`, left aligned, 16px gutter on mobile) and the work list is an index: on `lg` and up each project is a 12-column row (year 2, project 3, about 5, stack 2) under a row of column labels; below `lg` rows stack. Earlier work and tools sit side by side from `md`. In order:
+Revised 2026-09-17 after review: the narrow centred column read like a CV. After comparing a full-width index with a split layout, the owner chose the split: on `lg` and up a light grey panel (`--color-panel`) stays fixed on the left (5/12 width, 4/12 from `xl`) with name, intro, contact links, jump links to each section, previous versions and ©; the right side scrolls through the sections. Each project is a block with a larger title, years on the right, role and links on one line, description, muted notes, and the stack as small grey tags. Below `lg` the panel becomes a grey header above the sections. In order:
 
 1. **Intro**: name (the largest text on the page, `text-xl sm:text-2xl`),
    "Software Engineer, Lagos, Nigeria", two short sentences, then plain text
