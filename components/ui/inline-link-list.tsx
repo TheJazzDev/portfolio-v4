@@ -5,12 +5,11 @@ import { TextLink } from './text-link';
 type InlineLinkListProps = {
   links: SiteLink[];
   separator?: string;
-  className?: string;
 };
 
-export function InlineLinkList({ links, separator = ', ', className }: InlineLinkListProps) {
+export function InlineLinkList({ links, separator = ', ' }: InlineLinkListProps) {
   return (
-    <span className={className}>
+    <span>
       {links.map((link, index) => (
         <Fragment key={link.href}>
           {index > 0 && separator}

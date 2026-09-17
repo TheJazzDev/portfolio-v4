@@ -24,6 +24,7 @@ const allLinks: SiteLink[] = [
   ...earlierWork,
   ...tools,
   ...pastVersions,
+  ...resume.links,
 ];
 
 describe('home content', () => {
@@ -86,5 +87,14 @@ describe('resume content', () => {
       'DEFT Trader',
       'StableDoc',
     ]);
+  });
+
+  test('resume copy avoids stock phrases', () => {
+    const banned = [/—/, /passionate/i, /crafting/i, /seamless/i, /robust/i, /leverage/i, /results-driven/i, /pixel-perfect/i, /successfully/i, /comprehensive/i];
+    for (const text of collectStrings(resume)) {
+      for (const pattern of banned) {
+        expect({ text, match: pattern.test(text) }).toEqual({ text, match: false });
+      }
+    }
   });
 });

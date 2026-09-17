@@ -7,8 +7,11 @@ import { LabelledLines } from '@/components/resume/labelled-lines';
 import { PrintButton } from '@/components/resume/print-button';
 import { TextLink } from '@/components/ui/text-link';
 
+const title = `Resume, ${resume.name}`;
+
 export const metadata: Metadata = {
-  title: `Resume, ${resume.name}`,
+  title,
+  openGraph: { title },
 };
 
 export default function ResumePage() {

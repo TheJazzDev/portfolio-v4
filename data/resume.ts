@@ -22,12 +22,12 @@ export const resume = {
     { label: 'Portfolio', href: 'https://jazzdev.vercel.app' },
   ] satisfies SiteLink[],
   summary:
-    'Results-driven Lead Frontend Engineer with 4+ years of hands-on experience architecting and scaling web applications across fintech, Web3, food delivery, and healthcare sectors. Proven expertise in React.js, Next.js, and TypeScript with a demonstrated ability to lead high-performing teams, mentor junior developers, and deliver pixel-perfect, performance-optimized applications serving thousands of users.',
+    'Software engineer with 4+ years of experience building and scaling web applications across fintech, Web3, food delivery, and healthcare. Works mostly in React, Next.js, and TypeScript, and has led frontend teams and mentored junior developers.',
   summaryPoints: [
     'Led a team of 4 frontend developers building scalable accounting software with micro-frontend architecture',
     'Mentored 3 interns through to junior developer positions, establishing team best practices',
     'Evaluated 20,000+ lines of code, improving product optimization by 20% and developer productivity',
-    'Successfully shipped 7+ responsive web applications and multiple blockchain dApps',
+    'Shipped 7+ responsive web applications and several blockchain dApps',
   ],
   competencies: [
     {
@@ -57,7 +57,7 @@ export const resume = {
       points: [
         'Built production-ready food delivery web application using Next.js 16, React 19, and TypeScript with Firebase backend serving real customers',
         'Integrated Stripe payment processing with webhook handling and DPD Local UK shipping API for automated order fulfillment and thermal label printing',
-        'Developed comprehensive admin dashboard with role-based access control, order management, real-time analytics, and inventory tracking',
+        'Built the admin dashboard with role-based access control, order management, real-time analytics, and inventory tracking',
         'Implemented 30+ RESTful API endpoints with authentication, activity logging, and automated cleanup jobs deployed on Vercel with cron scheduling',
         'Designed complex checkout flow with cart persistence, delivery validation, and multi-service integration (Firebase, Resend email, QZ Tray printing)',
       ],
@@ -71,7 +71,7 @@ export const resume = {
       about: 'IT solutions company providing innovative tech solutions to businesses worldwide',
       points: [
         'Leading a high-performing team of 4 frontend developers building scalable accounting software using micro-frontend architecture and 300+ integrated API endpoints',
-        'Architected and implemented micro-frontend architecture enabling independent team workflows and seamless integration across services',
+        'Designed and built the micro-frontend architecture so teams could work and deploy independently',
         'Designed, developed, and maintained 7+ responsive web applications using React.js and Angular, serving thousands of users',
         'Mentored 3 interns from onboarding to junior developer positions, establishing coding standards and best practices',
         'Optimized applications for performance, identifying bottlenecks and reducing load times through profiling and code analysis',
@@ -97,7 +97,7 @@ export const resume = {
       location: 'Remote',
       about: 'Forex brand helping traders and investors achieve profitability in forex markets',
       points: [
-        'Designed and developed fully responsive multi-page Forex website with seamless UX',
+        'Designed and built a responsive multi-page forex website',
         'Implemented authentication system, admin panel, and database using Firebase',
         'Integrated REST APIs with Myfxbook to fetch real-time financial data',
       ],
@@ -108,9 +108,9 @@ export const resume = {
       period: 'Oct 2021 – Dec 2022',
       about: 'Blockchain- and AI-powered telehealth platform providing global cross-boundary healthcare',
       points: [
-        'Led cross-functional team of 2 designers and 6 developers to successfully launch 5 products',
+        'Led a team of 2 designers and 6 developers that launched 5 products',
         'Evaluated 20,000+ lines of code across multiple projects, ensuring adherence to industry best practices',
-        'Made codebase 100% developer-friendly through comprehensive code reviews and documentation',
+        'Made the codebase easier to work in through code reviews and documentation',
         'Provided mentorship and technical guidance to junior developers, improving team efficiency',
       ],
       skills: 'Flutter, Code Review, Performance Optimization, Team Leadership, Product Development',
@@ -127,7 +127,7 @@ export const resume = {
     'Evaluated 20,000+ lines of code, improving product optimization by 20%',
     'Shipped 5+ production applications across web, mobile, and blockchain platforms',
     'Designed micro-frontend architecture enabling scalable workflows and 300+ API integrations',
-    'Successfully led cross-functional teams of 8+ people to deliver products on time',
+    'Led cross-functional teams of 8+ people and delivered products on time',
   ],
   additional: [
     { label: 'Work authorization', value: 'Nigerian citizen, open to visa sponsorship for international opportunities' },
