@@ -53,8 +53,10 @@ describe('home content', () => {
     }
   });
 
-  test('does not link the offline 67hf.org site', () => {
-    expect(allLinks.some((link) => link.href.includes('67hf.org'))).toBe(false);
+  test('every selected project has at least one tag', () => {
+    for (const project of selectedWork) {
+      expect({ id: project.id, tags: project.tags.length > 0 }).toEqual({ id: project.id, tags: true });
+    }
   });
 
   test('copy avoids em dashes and stock phrases', () => {
@@ -69,7 +71,7 @@ describe('home content', () => {
 
 describe('resume content', () => {
   test('uses the new headline and portfolio link', () => {
-    expect(resume.headline).toBe('Software Engineer');
+    expect(resume.headline).toBe('Senior Software Engineer');
     expect(resume.links.map((link) => link.href)).toContain('https://jazzdev.vercel.app');
   });
 

@@ -1,7 +1,7 @@
 import { SidePanel } from '@/components/home/side-panel';
 import { Section } from '@/components/home/section';
 import { ProjectEntry } from '@/components/home/project-entry';
-import { InlineLinkList } from '@/components/ui/inline-link-list';
+import { LinkGrid } from '@/components/home/link-grid';
 import { selectedWork } from '@/data/selected-work';
 import { earlierWork } from '@/data/earlier-work';
 import { tools } from '@/data/tools';
@@ -19,15 +19,11 @@ export default function HomePage() {
         </Section>
 
         <Section id='earlier' title='Earlier work'>
-          <p className='leading-relaxed'>
-            <InlineLinkList links={earlierWork} />
-          </p>
+          <LinkGrid links={earlierWork} />
         </Section>
 
         <Section id='tools' title='Tools and open source'>
-          <p className='leading-relaxed'>
-            <InlineLinkList links={tools} />
-          </p>
+          <LinkGrid links={tools} />
         </Section>
       </main>
     </div>

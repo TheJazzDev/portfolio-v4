@@ -14,7 +14,7 @@ type LabelledLine = { label: string; value: string };
 
 export const resume = {
   name: 'Taiwo Adewale Babarinde',
-  headline: 'Software Engineer',
+  headline: 'Senior Software Engineer',
   contactLine: 'babsman4all@gmail.com · +2349032073321 · Lagos, Nigeria',
   links: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/taiwo-babarinde/' },
@@ -22,7 +22,7 @@ export const resume = {
     { label: 'Portfolio', href: 'https://jazzdev.vercel.app' },
   ] satisfies SiteLink[],
   summary:
-    'Software engineer with 4+ years of experience building and scaling web applications across fintech, Web3, food delivery, and healthcare. Works mostly in React, Next.js, and TypeScript, and has led frontend teams and mentored junior developers.',
+    'Senior software engineer with 4+ years of experience building and scaling web applications across fintech, Web3, food delivery, and healthcare. Works mostly in React, Next.js, and TypeScript, and has led frontend teams and mentored junior developers.',
   summaryPoints: [
     'Led a team of 4 frontend developers building scalable accounting software with micro-frontend architecture',
     'Mentored 3 interns through to junior developer positions, establishing team best practices',

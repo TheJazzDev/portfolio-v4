@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { profile } from '@/data/profile';
 import { pastVersions } from '@/data/past-versions';
 import { InlineLinkList } from '@/components/ui/inline-link-list';
@@ -12,6 +13,15 @@ export function SidePanel() {
   return (
     <aside className='bg-panel px-4 py-10 sm:px-8 sm:py-14 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-5/12 lg:shrink-0 lg:flex-col lg:justify-between lg:px-12 xl:w-4/12'>
       <div>
+        <Image
+          src='/headshot.jpg'
+          alt={profile.name}
+          width={250}
+          height={250}
+          unoptimized
+          preload
+          className='mb-4 size-16 rounded-full object-cover ring-1 ring-rule sm:mb-5 sm:size-20'
+        />
         <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl'>
           {profile.name}
         </h1>
