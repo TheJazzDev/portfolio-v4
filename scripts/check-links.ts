@@ -7,6 +7,7 @@ import { resume } from '@/data/resume';
 
 // npm and LinkedIn block scripted requests, so a 403/999 from them is not a broken link.
 const BOT_BLOCKING_HOSTS = ['www.npmjs.com', 'www.linkedin.com'];
+const BOT_BLOCK_STATUSES = [403, 999];
 
 const hrefs = [
   ...profile.contacts,
@@ -34,7 +35,9 @@ const results = await Promise.all(
 
 const broken = results.filter(({ href, status }) => {
   if (status >= 200 && status < 400) return false;
-  return !BOT_BLOCKING_HOSTS.includes(new URL(href).hostname);
+  const blockedByBot =
+    BOT_BLOCKING_HOSTS.includes(new URL(href).hostname) && BOT_BLOCK_STATUSES.includes(status);
+  return !blockedByBot;
 });
 
 for (const { href, status } of results) console.log(status, href);
