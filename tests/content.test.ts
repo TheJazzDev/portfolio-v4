@@ -4,6 +4,7 @@ import { selectedWork } from '@/data/selected-work';
 import { earlierWork } from '@/data/earlier-work';
 import { tools } from '@/data/tools';
 import { pastVersions } from '@/data/past-versions';
+import { resume } from '@/data/resume';
 import type { SiteLink } from '@/lib/types';
 
 const homeContent = { profile, selectedWork, earlierWork, tools, pastVersions };
@@ -62,5 +63,28 @@ describe('home content', () => {
         expect({ text, match: pattern.test(text) }).toEqual({ text, match: false });
       }
     }
+  });
+});
+
+describe('resume content', () => {
+  test('uses the new headline and portfolio link', () => {
+    expect(resume.headline).toBe('Software Engineer');
+    expect(resume.links.map((link) => link.href)).toContain('https://jazzdev.vercel.app');
+  });
+
+  test('has no emojis and no "lunch" typo', () => {
+    const text = collectStrings(resume).join(' ');
+    expect(/\p{Extended_Pictographic}/u.test(text)).toBe(false);
+    expect(text).not.toContain('lunch');
+  });
+
+  test('keeps all five roles from v3', () => {
+    expect(resume.experience.map((job) => job.company)).toEqual([
+      'Food Junkee',
+      'Candour IT Services',
+      'VastFluid Finance',
+      'DEFT Trader',
+      'StableDoc',
+    ]);
   });
 });
