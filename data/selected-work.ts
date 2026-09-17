@@ -64,7 +64,7 @@ export const selectedWork: Project[] = [
     notes:
       'Four admin roles with an audit trail of every change, bulk CSV member import, Stripe donations, news publishing and memorial pages honouring fallen members.',
     stack: ['Next.js', 'Prisma', 'PostgreSQL', 'NextAuth', 'Stripe', 'Cloudinary'],
-    links: [{ label: '67hf.org', href: 'https://67hf.org' }],
+    links: [{ label: '67hf.vercel.app', href: 'https://67hf.vercel.app' }],
   },
   {
     id: 'valley-of-mercy',
@@ -119,6 +119,6 @@ export const selectedWork: Project[] = [
     notes:
       'Club staff build lineups by choosing a formation and assigning a player to each position. Players without a photo get an illustrated avatar.',
     stack: ['Next.js', 'Prisma', 'PostgreSQL', 'NextAuth', 'Vercel Blob'],
-    links: [{ label: 'ohfc.vercel.app', href: 'https://ohfc.vercel.app' }],
+    links: [{ label: 'ohc-fc.vercel.app', href: 'https://ohc-fc.vercel.app' }],
   },
 ];
