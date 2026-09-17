@@ -17,7 +17,7 @@ export const resume = {
   headline: 'Senior Software Engineer',
   contactLine: 'babsman4all@gmail.com · +2349032073321 · Lagos, Nigeria',
   links: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/taiwo-babarinde/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/taiwobabarinde/' },
     { label: 'GitHub', href: 'https://github.com/TheJazzDev' },
     { label: 'Portfolio', href: 'https://jazzdev.vercel.app' },
   ] satisfies SiteLink[],

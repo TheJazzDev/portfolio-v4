@@ -2,6 +2,8 @@ import type { Project } from '@/lib/types';
 import { InlineLinkList } from '@/components/ui/inline-link-list';
 import { ArrowUpRightIcon } from '@/components/ui/arrow-up-right-icon';
 import { ProjectTags } from './project-tags';
+import { ProjectMetrics } from './project-metrics';
+import { ProjectHighlights } from './project-highlights';
 
 function ProjectTitle({ project }: { project: Project }) {
   const primaryLink = project.links[0];
@@ -45,9 +47,10 @@ export function ProjectEntry({ project }: { project: Project }) {
       </p>
 
       <p className='mt-4 leading-relaxed'>{project.description}</p>
-      {project.notes && <p className='mt-2 leading-relaxed text-muted'>{project.notes}</p>}
+      {project.metrics && <ProjectMetrics metrics={project.metrics} />}
+      <ProjectHighlights highlights={project.highlights} />
 
-      <ul className='mt-4 flex flex-wrap gap-1.5' aria-label='Tech stack'>
+      <ul className='mt-4 flex flex-wrap gap-1.5 sm:mt-5' aria-label='Tech stack'>
         {project.stack.map((tech) => (
           <li key={tech} className='rounded-md bg-panel px-2 py-0.5 text-xs text-muted'>
             {tech}

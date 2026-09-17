@@ -35,10 +35,10 @@ describe('home content', () => {
       'digit-tally',
       'food-junkee',
       '67-humanitarian-foundation',
-      'valley-of-mercy',
+      'vom-church',
       'asiko-foods',
       'olamide-sax',
-      'ohc-fc',
+      'mr-oshodi',
     ]);
   });
 
@@ -50,6 +50,12 @@ describe('home content', () => {
   test('every link is https, mailto or an internal path', () => {
     for (const link of allLinks) {
       expect(link.href).toMatch(/^(https:\/\/|mailto:|\/)/);
+    }
+  });
+
+  test('every selected project explains how it is built', () => {
+    for (const project of selectedWork) {
+      expect({ id: project.id, highlights: project.highlights.length > 0 }).toEqual({ id: project.id, highlights: true });
     }
   });
 
