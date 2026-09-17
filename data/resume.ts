@@ -51,7 +51,7 @@ export const resume = {
     {
       title: 'Front-End Developer (Freelance)',
       company: 'Food Junkee',
-      period: 'Nov 2025 – Present',
+      period: 'Nov 2025 – Mar 2026',
       location: 'Remote',
       about: 'Full-stack food delivery platform specializing in African and Caribbean cuisine',
       points: [
