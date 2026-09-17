@@ -4,11 +4,11 @@ import { InlineLinkList } from '@/components/ui/inline-link-list';
 
 export function SiteFooter() {
   return (
-    <footer className='mt-12 border-t border-rule pt-6 text-xs text-muted sm:mt-16 sm:text-sm'>
+    <footer className='flex flex-col gap-1 border-t border-rule pt-6 text-xs text-muted sm:flex-row sm:justify-between sm:text-sm'>
       <p>
-        Previous versions of this site: <InlineLinkList links={pastVersions} />.
+        Previous versions of this site: <InlineLinkList links={pastVersions} />
       </p>
-      <p className='mt-1'>
+      <p>
         © {new Date().getFullYear()} {profile.name}
       </p>
     </footer>

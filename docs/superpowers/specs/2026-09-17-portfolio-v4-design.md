@@ -45,7 +45,7 @@ then scaffold the new app in the following commits.
 
 ### `/` (the portfolio)
 
-A single column, `max-w-2xl`, 16px side gutter on mobile. In order:
+Revised 2026-09-17 after review: the narrow centred column read like a CV. The page is now full width (`max-w-7xl`, left aligned, 16px gutter on mobile) and the work list is an index: on `lg` and up each project is a 12-column row (year 2, project 3, about 5, stack 2) under a row of column labels; below `lg` rows stack. Earlier work and tools sit side by side from `md`. In order:
 
 1. **Intro**: name (the largest text on the page, `text-xl sm:text-2xl`),
    "Software Engineer, Lagos, Nigeria", two short sentences, then plain text
@@ -87,8 +87,8 @@ settrium.com
 
 - Font: Tailwind's default `font-sans` system stack. Nothing to load.
 - Colour: tokens in `globals.css` via `@theme`: background, text, muted text,
-  rule, and one link colour. Light by default, dark via
-  `prefers-color-scheme`. No toggle.
+  rule, and one link colour. Light only (white background); no automatic dark
+  mode and no toggle.
 - Sizes follow the mobile-first rules: body `text-sm sm:text-base`, section
   headings `text-base sm:text-lg` with medium weight, entry padding
   `py-5 sm:py-6`, page padding `py-10 sm:py-16`.

@@ -13,7 +13,9 @@ export function InlineLinkList({ links, separator = ', ' }: InlineLinkListProps)
       {links.map((link, index) => (
         <Fragment key={link.href}>
           {index > 0 && separator}
-          <TextLink href={link.href}>{link.label}</TextLink>
+          <TextLink href={link.href} className='whitespace-nowrap'>
+            {link.label}
+          </TextLink>
         </Fragment>
       ))}
     </span>
