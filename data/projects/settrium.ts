@@ -21,8 +21,9 @@ export const settrium: Project = {
     'One approval engine for every document type, with signing matrices, per-currency ceilings, delegation and separation of duties. Process strictness is policy per organisation, so an NGO and a small business run the same code.',
     'Built with AI coding agents under machine-enforced architecture: 58 custom ESLint rules, each tested, run on every edit and commit (no cross-suite data access, audit writes inside transactions, a permission on every endpoint), backed by 476 written feature specs.',
     'Seven NestJS services and three Next.js apps. Suite entitlements are checked on every request, with about 180 role-based permissions, subdomain-only sign-in, signed PDF rendering, live notifications and Stripe plus Paystack billing.',
+    'Runs on AWS, with all infrastructure defined in Terraform: containerised services on ECS, managed PostgreSQL on RDS and Aurora, separate staging and production environments, and automated deploys from CI.',
   ],
-  stack: ['Next.js', 'NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Neon', 'Zod', 'Turborepo', 'Railway', 'Vercel', 'Sentry'],
+  stack: ['Next.js', 'NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'AWS', 'Terraform', 'Zod', 'Turborepo', 'Vercel', 'Sentry'],
   links: [
     { label: 'settrium.com', href: 'https://settrium.com' },
     { label: 'github.com/Settrium', href: 'https://github.com/Settrium' },
