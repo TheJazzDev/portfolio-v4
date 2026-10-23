@@ -30,7 +30,7 @@ const allLinks: SiteLink[] = [
 describe('home content', () => {
   test('lists the nine selected projects in order', () => {
     expect(selectedWork.map((project) => project.id)).toEqual([
-      'settrium',
+      'steadant',
       'blocnet',
       'digit-tally',
       'food-junkee',
@@ -77,8 +77,8 @@ describe('home content', () => {
 
 describe('resume content', () => {
   test('uses the new headline and portfolio link', () => {
-    expect(resume.headline).toBe('Senior Software Engineer');
-    expect(resume.links.map((link) => link.href)).toContain('https://jazzdev.vercel.app');
+    expect(resume.headline).toBe('Founder and Principal Engineer');
+    expect(resume.links.map((link) => link.href)).toContain('https://jazzdev.xyz');
   });
 
   test('has no emojis and no "lunch" typo', () => {
@@ -87,10 +87,14 @@ describe('resume content', () => {
     expect(text).not.toContain('lunch');
   });
 
-  test('keeps all five roles from v3', () => {
+  test('lists every role, newest first', () => {
     expect(resume.experience.map((job) => job.company)).toEqual([
-      'Food Junkee',
+      'Steadant',
       'Candour IT Services',
+      'Blocnet',
+      'Asiko Foods',
+      'Food Junkee',
+      '67 Humanitarian Foundation',
       'VastFluid Finance',
       'DEFT Trader',
       'StableDoc',

@@ -9,8 +9,8 @@ export const blocnet: Project = {
   description:
     'A social platform for the crypto community. Users discover and follow projects, read a feed of their updates ranked by an AI engine, join community discussions, complete quests, run mining sessions for rewards, and hold, send and tip BNT, BNB and USDT from a built-in custodial wallet with KYC.',
   metrics: [
-    { value: '270', label: 'API endpoints' },
-    { value: '74', label: 'data models' },
+    { value: '390', label: 'API endpoints' },
+    { value: '97', label: 'data models' },
     { value: '1,180+', label: 'automated tests' },
     { value: '38', label: 'admin console pages' },
   ],

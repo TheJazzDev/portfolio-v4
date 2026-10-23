@@ -5,13 +5,14 @@ const summary =
 
 export const profile = {
   name: 'Taiwo Babarinde',
-  title: 'Senior Software Engineer',
+  title: 'Founder and Principal Engineer, Steadant',
   location: 'Lagos, Nigeria',
   summary,
-  intro: `${summary} Right now that means an audit-grade ERP that gives every customer its own database, and a crypto platform with a custodial wallet and an AI engine. I also lead a frontend team shipping seven accounting apps.`,
+  intro: `${summary} Right now that means Steadant, an audit-grade ERP that gives every customer its own database and keeps its architecture in line with machine-enforced rules, and Blocnet, a crypto platform with a custodial wallet and an AI engine. I also lead a frontend team shipping seven accounting apps.`,
   contacts: [
     { label: 'Email', href: 'mailto:babsman4all@gmail.com' },
     { label: 'GitHub', href: 'https://github.com/TheJazzDev' },
+    { label: 'Steadant on GitHub', href: 'https://github.com/Steadant' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/taiwobabarinde/' },
     { label: 'Resume', href: '/resume' },
   ] satisfies SiteLink[],
