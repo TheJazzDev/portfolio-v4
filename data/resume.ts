@@ -32,7 +32,11 @@ export const resume = {
   competencies: [
     {
       label: 'Backend and data',
-      value: 'NestJS, Prisma, PostgreSQL, Neon, FastAPI, Zod, multi-tenant architecture, double-entry ledgers, audit trails',
+      value: 'NestJS, Prisma, PostgreSQL, FastAPI, Zod, multi-tenant architecture, double-entry ledgers, audit trails',
+    },
+    {
+      label: 'Cloud and infrastructure',
+      value: 'AWS (ECS, ECR, RDS, Aurora), Terraform, GitHub Actions, Docker, Vercel',
     },
     {
       label: 'Frontend and mobile',
@@ -62,10 +66,11 @@ export const resume = {
         'Designed and built the platform: 7 NestJS services, 3 Next.js apps, 264 data models and 1,389 API endpoints, with Budgeting & Planning and Procurement live',
         'Gave every customer its own Postgres database, provisioned at sign-up, with migrations rolled across the whole fleet on deploy and sandbox copies for safe testing',
         'Built a tamper-evident audit log: every write is hash-chained inside the same transaction and anchored with RFC 3161 timestamps',
+        'Defined the AWS infrastructure in Terraform: services on ECS, PostgreSQL on RDS and Aurora, separate staging and production environments, automated CI deploys',
         'Wrote 58 custom ESLint rules that enforce the architecture on every edit and commit, keeping a codebase built with AI coding agents consistent',
         'Wrote 2,393 test files and 476 feature specs',
       ],
-      skills: 'NestJS, Next.js, TypeScript, Prisma, PostgreSQL, Neon, Turborepo, Stripe, Paystack',
+      skills: 'NestJS, Next.js, TypeScript, Prisma, PostgreSQL, AWS, Terraform, Turborepo, Stripe, Paystack',
     },
     {
       title: 'Lead Frontend Engineer',
