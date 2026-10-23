@@ -12,7 +12,7 @@ export const digitTally: Project = {
     { value: '7', label: 'independently deployed apps' },
     { value: '180+', label: 'screens' },
     { value: '3', label: 'npm packages published' },
-    { value: '2,400+', label: 'commits authored' },
+    { value: '3,800+', label: 'commits authored' },
   ],
   highlights: [
     'I lead a team of four frontend engineers and own the micro-frontend architecture: seven Next.js apps on their own subdomains, sharing one sign-in through parent-domain cookies and edge session checks.',
