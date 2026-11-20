@@ -5,9 +5,11 @@ import { ResumeSection } from '@/components/resume/resume-section';
 import { ExperienceItem } from '@/components/resume/experience-item';
 import { LabelledLines } from '@/components/resume/labelled-lines';
 import { PrintButton } from '@/components/resume/print-button';
+import { AutoPrint } from '@/components/resume/auto-print';
 import { TextLink } from '@/components/ui/text-link';
 
-const title = `Resume, ${resume.name}`;
+// The browser uses the page title as the file name when saving the PDF.
+const title = 'Taiwo Babarinde CV';
 
 export const metadata: Metadata = {
   title,
@@ -17,6 +19,8 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   return (
     <main className='mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12 print:max-w-none print:p-0'>
+      <AutoPrint />
+
       <div className='mb-6 flex items-center justify-between print:hidden'>
         <TextLink href='/'>Back to work</TextLink>
         <PrintButton />
@@ -26,15 +30,10 @@ export default function ResumePage() {
 
       <ResumeSection title='Summary'>
         <p className='leading-relaxed'>{resume.summary}</p>
-        <ul className='mt-3 list-disc space-y-1 pl-5'>
-          {resume.summaryPoints.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
       </ResumeSection>
 
-      <ResumeSection title='Core competencies'>
-        <LabelledLines lines={resume.competencies} />
+      <ResumeSection title='Skills'>
+        <LabelledLines lines={resume.skills} />
       </ResumeSection>
 
       <ResumeSection title='Experience'>
@@ -51,15 +50,7 @@ export default function ResumePage() {
         </ul>
       </ResumeSection>
 
-      <ResumeSection title='Key achievements'>
-        <ul className='list-disc space-y-1 pl-5'>
-          {resume.achievements.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </ResumeSection>
-
-      <ResumeSection title='Additional information'>
+      <ResumeSection title='Open source and languages'>
         <LabelledLines lines={resume.additional} />
       </ResumeSection>
     </main>

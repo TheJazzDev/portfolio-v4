@@ -7,12 +7,12 @@ export const vomChurch: Project = {
   role: 'Lead engineer',
   tags: ['Mobile app', 'Admin panel'],
   description:
-    'A mobile app for the members of Valley of Mercy church and a web admin for its staff. Members follow sermons, Bible study, prayer requests, testimonies and the church programme, and find each other in a directory. Staff manage members, first-timers, attendance, departments and push announcements.',
+    'A mobile app for members of Valley of Mercy church, with a web admin for staff. Members follow sermons, Bible study and prayer requests. Staff manage members, attendance and announcements.',
   highlights: [
-    'Engagement built in: points for daily prayer, study and sermons, 30+ badges, day streaks and a leaderboard.',
-    'Sign-in by email or phone OTP, with a flow for existing members to find and activate their accounts.',
-    'Role-based admin access for teams such as programme, treasury and secretariat, enforced by permission guards, with Firebase session cookies verified on the server.',
-    'Push notifications sent in batches through Expo with delivery receipts, member CSV import and export, and Android builds produced by CI.',
+    'Members sign in by email or phone OTP, and existing members can find and activate their accounts.',
+    'Daily prayer and study earn points, badges and streaks, with a leaderboard.',
+    'Push notifications go out in batches through Expo, with delivery receipts.',
+    'Admin access is split by team (programme, treasury, secretariat) and checked on the server.',
   ],
   stack: ['React Native', 'Expo', 'Next.js', 'Firebase', 'Redux Toolkit', 'TanStack Query', 'NativeWind'],
   links: [],

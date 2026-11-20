@@ -6,8 +6,6 @@ import { foodJunkee } from './projects/food-junkee';
 import { sixtySevenHf } from './projects/sixty-seven-hf';
 import { vomChurch } from './projects/vom-church';
 import { asikoFoods } from './projects/asiko-foods';
-import { olamideSax } from './projects/olamide-sax';
-import { mrOshodi } from './projects/mr-oshodi';
 
 export const selectedWork: Project[] = [
   settrium,
@@ -17,6 +15,4 @@ export const selectedWork: Project[] = [
   sixtySevenHf,
   vomChurch,
   asikoFoods,
-  olamideSax,
-  mrOshodi,
 ];

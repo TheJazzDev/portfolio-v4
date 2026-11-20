@@ -1,6 +1,8 @@
 import type { SiteLink } from '@/lib/types';
 
 export const earlierWork: SiteLink[] = [
+  { label: 'Olamide Sax', href: 'https://olamidesax.co.uk' },
+  { label: 'Mr Oshodi', href: 'https://mr-oshodi.vercel.app' },
   { label: 'OHC FC', href: 'https://ohc-fc.vercel.app/' },
   { label: 'VastFluid DEX', href: 'https://landing-page-tan-nine-56.vercel.app/' },
   { label: 'Homely', href: 'https://app-homely.netlify.app/' },

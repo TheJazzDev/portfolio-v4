@@ -3,7 +3,7 @@ import { ArrowUpRightIcon } from '@/components/ui/arrow-up-right-icon';
 
 export function LinkGrid({ links }: { links: SiteLink[] }) {
   return (
-    <ul className='grid grid-cols-1 sm:grid-cols-2 sm:gap-x-6 xl:grid-cols-3'>
+    <ul className='grid grid-cols-1 sm:grid-cols-2 sm:gap-x-6 xl:grid-cols-1'>
       {links.map((link) => (
         <li key={link.href}>
           <a

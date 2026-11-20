@@ -28,7 +28,7 @@ const allLinks: SiteLink[] = [
 ];
 
 describe('home content', () => {
-  test('lists the nine selected projects in order', () => {
+  test('lists the seven selected projects in order', () => {
     expect(selectedWork.map((project) => project.id)).toEqual([
       'settrium',
       'blocnet',
@@ -37,8 +37,6 @@ describe('home content', () => {
       '67-humanitarian-foundation',
       'vom-church',
       'asiko-foods',
-      'olamide-sax',
-      'mr-oshodi',
     ]);
   });
 
@@ -75,9 +73,25 @@ describe('home content', () => {
   });
 });
 
+// Names that must stay out of public copy live in a git-ignored file, one per line,
+// so the guard itself does not publish them. The test is a no-op where the file is absent.
+const privateTermsFile = Bun.file(new URL('../.private-terms', import.meta.url));
+const privateTerms = (await privateTermsFile.exists())
+  ? (await privateTermsFile.text()).split('\n').map((term) => term.trim().toLowerCase()).filter(Boolean)
+  : [];
+
+describe('private terms', () => {
+  test('none of the private terms appear in public copy', () => {
+    for (const text of collectStrings({ homeContent, resume })) {
+      const found = privateTerms.filter((term) => text.toLowerCase().includes(term));
+      expect({ text, found }).toEqual({ text, found: [] });
+    }
+  });
+});
+
 describe('resume content', () => {
-  test('uses the new headline and portfolio link', () => {
-    expect(resume.headline).toBe('Founder and Principal Engineer');
+  test('uses the plain headline and portfolio link', () => {
+    expect(resume.headline).toBe('Software Engineer');
     expect(resume.links.map((link) => link.href)).toContain('https://jazzdev.xyz');
   });
 

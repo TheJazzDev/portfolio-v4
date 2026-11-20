@@ -1,19 +1,23 @@
 import type { SiteLink } from '@/lib/types';
 
-const summary =
-  'I build complex products end to end, from multi-tenant infrastructure and financial ledgers to the web and mobile apps people use every day.';
-
 export const profile = {
   name: 'Taiwo Babarinde',
-  title: 'Founder and Principal Engineer, Settrium',
+  title: 'Software Engineer',
   location: 'Lagos, Nigeria',
-  summary,
-  intro: `${summary} Right now that means Settrium, an audit-grade ERP that gives every customer its own database and keeps its architecture in line with machine-enforced rules, and Blocnet, a crypto platform with a custodial wallet and an AI engine. I also lead a frontend team shipping seven accounting apps.`,
+  openTo: 'Open to frontend, lead and AI engineering roles, and to backend roles on teams that build with AI.',
+  /** One line for search results and link previews. */
+  summary:
+    'Full-stack software engineer in Lagos, Nigeria. I design and build financial software: databases, APIs, AWS infrastructure, and web and mobile apps.',
+  intro:
+    "I'm a full-stack engineer with five years of experience, mostly on financial software: accounting, ERP, payments and wallets. I design the system and build all of it, from the database and APIs to the AWS infrastructure and the web and mobile apps. I've taken products from the first commit to production on my own, and I lead a team of four frontend engineers.",
   contacts: [
     { label: 'Email', href: 'mailto:babsman4all@gmail.com' },
     { label: 'GitHub', href: 'https://github.com/TheJazzDev' },
-    { label: 'Settrium on GitHub', href: 'https://github.com/Settrium' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/taiwobabarinde/' },
-    { label: 'Resume', href: '/resume' },
+    { label: 'X', href: 'https://x.com/jazz__dev' },
   ] satisfies SiteLink[],
+  cv: {
+    view: '/resume',
+    download: '/resume?download=1',
+  },
 };

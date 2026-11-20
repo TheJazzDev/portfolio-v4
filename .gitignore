@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# names that must not be published (see tests/content.test.ts)
+.private-terms
