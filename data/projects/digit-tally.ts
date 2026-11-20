@@ -3,7 +3,7 @@ import type { Project } from '@/lib/types';
 export const digitTally: Project = {
   id: 'digit-tally',
   title: 'Digit Tally',
-  years: '2024–now',
+  years: '2023–now',
   role: 'Lead frontend engineer, Candour IT Services',
   tags: ['Web app'],
   description:

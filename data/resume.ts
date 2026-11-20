@@ -64,7 +64,7 @@ export const resume = {
     {
       title: 'Lead Frontend Engineer',
       company: 'Candour IT Services',
-      period: 'Jan 2024 – Present',
+      period: 'Jan 2023 – Present',
       location: 'Remote',
       about: 'Digit Tally, cloud accounting for Nigerian businesses',
       points: [
@@ -128,7 +128,7 @@ export const resume = {
     {
       title: 'Front-End Developer',
       company: 'VastFluid Finance',
-      period: 'Mar 2023 – May 2023',
+      period: 'Jan 2023 – May 2023',
       location: 'Remote',
       about: 'Decentralised exchange on the Arbitrum network',
       points: ['Built the landing page and worked with the design team on the dApp frontend'],
@@ -144,10 +144,10 @@ export const resume = {
     {
       title: 'Strategy and Quality Assurance Manager',
       company: 'StableDoc',
-      period: 'Oct 2021 – Dec 2022',
+      period: 'Oct 2021 – Nov 2022',
       about: 'Telehealth platform',
       points: [
-        'Led 2 designers and 6 developers through 5 product launches',
+        'Led 2 designers and 4 developers to launch a dApp, 2 mobile apps and a web app',
         'Reviewed code across projects and wrote the developer documentation',
       ],
       skills: 'Flutter, code review, team leadership',
